@@ -1,0 +1,4 @@
+(SELECT cu.City, cu.CompanyName, cu.ContactName, 'Customer' as Relationship FROM Customers as cu)
+UNION
+(SELECT su.City, su.CompanyName, su.ContactName, 'Supplier' as Relationship FROM Suppliers as su)
+ORDER BY City, ContactName;

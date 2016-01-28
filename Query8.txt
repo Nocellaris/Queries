@@ -1,0 +1,10 @@
+SELECT
+	c.CategoryName,
+	p.ProductName AS CheapestProduct,
+	MIN(p.UnitPrice) AS MinCategoryPrice
+FROM
+	Categories AS c
+		INNER JOIN
+	products AS p ON c.CategoryID = p.CategoryID
+
+GROUP BY CategoryName

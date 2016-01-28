@@ -1,0 +1,13 @@
+SELECT
+	YEAR(orderdetails.OrderDate) AS YearofInCome,
+	categories.CategoryName,
+	products.ProductName,
+	SUM((orderdetails.UnitPrice * orderdetails.Quantity * (1 - (orderdetails.Discount))) AS ProductSale
+FROM
+	categories, products, orderdetails
+WHERE
+    orderdetails.ProductID = products.ProductID
+AND
+    products.CategoryID = categories.CategoryID
+GROUP BY YearOfIncome, p.Productname
+ORDER BY productsname, YearOfIncome

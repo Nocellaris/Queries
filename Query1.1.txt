@@ -1,0 +1,11 @@
+SELECT
+orderdetails.OrderID,
+orderdetails.ProductID,
+products.ProductName,
+orderdetails.UnitPrice,
+orderdetails.Quantity,
+orderdetails.Discount,
+(((orderdetails.UnitPrice) - (((orderdetails.UnitPrice / 100)) * (orderdetails.Discount))) * orderdetails.Quantity) AS TotalPrice
+FROM orderdetails, products
+WHERE
+orderdetails.ProductID = products.ProductID

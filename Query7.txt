@@ -1,0 +1,13 @@
+SELECT
+	c.CategoryName,
+	p.ProductName,
+	p.QuantityPerUnit,
+	p.UnitsInStock
+FROM
+	categories AS c
+	INNER JOIN
+	Products AS p ON c.categoryID = p.categoryID
+WHERE
+	p.UnitsInStock > 0
+ORDER BY 
+	CategoryName, ProductName;
